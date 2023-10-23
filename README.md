@@ -105,3 +105,27 @@ hemos usado en la configuración de PHPStorm DB.
 Y comprobamos que funcione:
 
 ![Funcionamiento DB en PHPStorm](images/comprobarDB.png)
+
+### Comprobar funcionamiento de la pagina
+
+Iniciaremos el docker-compose y comprobaremos su funcionamiento desde
+un navegador, en este caso Chrome.
+
+Accederemos usando nuestra ip local añadiendoles :8080 (nuestro puerto),
+nuestra ip la podemos encontrar en nuestra terminal
+con el comando adecuado dependiendo de nuestro
+SO, en mi caso:
+
+ - 10.0.9.2:8080
+
+Dede ahi, podemos ver el funcionamiento de nuestra
+prestashop:
+
+![Funcionamiento de la web](images/prestashopfuncion.png)
+
+Y comprobamos que podemos navegar por ella, entrando
+, por ejemplo, en SignIn:
+
+
+![Funcionamiento de la web2](images/prestashopfuncion2.png)
+
