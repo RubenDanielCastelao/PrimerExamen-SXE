@@ -46,7 +46,7 @@ Siendo:
  - restart: Cuando se reiniciara el container
  - depends_on: La base de datos que usaremos
  - ports: El puerto en el que se hosteara el servicio de prestashop
- - enviroment: Son propiedades varias de prestashop, usuario, contraseña, etc....
+ - enviroment: Son propiedades varias de prestashop como: usuario, contraseña, etc....
  - networks: La network usada para conectar prestashop con su db
 
 #### Mysql
@@ -62,6 +62,46 @@ este es la configuración:
     environment:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: prestashop
-    networks:
-      - prestashop_network
 ```
+
+Siendo:
+
+- container_name: El nombre del contenedor
+- image: La imagen de mysql que usaremos
+- restart: Cuando se reiniciara el container
+- ports: El puerto en el que se hosteara el servicio de MySql
+- enviroment: Son propiedades varias de MySql como: usuario, contraseña, etc....
+
+#### Network
+
+Declararemos tambíen la Network que se usara entre MySql y Prestashop.
+
+```
+networks:
+  prestashop_network:
+```
+
+### Enlazar DB con PHPStorm
+
+Crearemos una base de MySql usando la UI de PHPStorm,
+y procederemos a configurar sus propiedades.
+
+![MySql en PHPStorm](images/mysqlconfig.png)
+
+Para que esto funcione, añadiremos estos parametros a nuestro
+ya declarado MySql.
+
+```
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+    ports:
+      - 3306:3306
+```
+
+Que modificaran un usuario dentro de la DB, ademas de su contraseña,
+y los puertos usados para conectarse a la DB, igualandolos a los que
+hemos usado en la configuración de PHPStorm DB.
+
+Y comprobamos que funcione:
+
+![Funcionamiento DB en PHPStorm](images/comprobarDB.png)
